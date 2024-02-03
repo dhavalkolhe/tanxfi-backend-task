@@ -29,7 +29,7 @@ export const verifyToken = (req, res, next) => {
 
     // Attach the decoded user information to the request for further use
     req.user = decoded;
-    console.log("Decoded: ", decoded);
+    // console.log("Decoded: ", decoded);
 
     next();
   } catch (error) {
