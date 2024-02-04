@@ -154,4 +154,3 @@ This logic is implemented in a server-side script to handle WebSocket connection
 - It emits alert messages to connected clients when the trade data triggers user alerts.
 - WebSocket connections are managed for each user based on their subscribed currencies.
 
-**Important:** Ensure proper error handling and security measures in a production environment.
