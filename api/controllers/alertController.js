@@ -7,10 +7,7 @@ dotenv.config();
 export const getAllAlerts = async (req, res, next) => {
   try {
     const { status, page = 1, limit = 5 } = req.query;
-    console.log(req);
-    console.log(req.query);
-    console.log("page: ", page);
-    console.log("limit: ", limit);
+
     const skip = (page - 1) * limit;
 
     const query = { created_by: req.user.userId };
@@ -61,14 +58,6 @@ export const createAlert = async (req, res, next) => {
       $push: { alerts: savedAlert._id },
     });
 
-    // Checking if Symbol available on binance
-    // const client = Binance({
-    //   apiKey: process.env.BINANCE_API_KEY,
-    //   apiSecret: process.env.BINANCE_API_SECRET,
-    // });
-
-    // client.API_URL = "https://api.binance.com/api/v3/sapi/v1/margin/allAssets";
-
     res.status(201).json({
       success: true,
       message: "Alert created successfully",
@@ -79,6 +68,7 @@ export const createAlert = async (req, res, next) => {
     res.status(500).json({
       success: false,
       message: "Internal Server Error",
+      error: error,
     });
   }
 };
