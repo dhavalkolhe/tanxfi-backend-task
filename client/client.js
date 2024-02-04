@@ -4,7 +4,7 @@ import axios from "axios";
 
 dotenv.config();
 
-let userToken = "";
+let userToken = "YOUR_AUTH_TOKEN";
 
 const socket = io(`http://localhost:${process.env.PORT}`, {
   auth: {
